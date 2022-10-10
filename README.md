@@ -1,18 +1,15 @@
-# Java Starter
+# THe Bakery
 
 [![Java Language](https://img.shields.io/badge/language-Java-3A75B0.svg?logo=OpenJDK)][1]
 [![JVM Platform](https://img.shields.io/badge/platform-JVM-6C93B8.svg?logo=IntelliJIDEA)][2]
 [![JUnit5 Testing Framework](https://img.shields.io/badge/testing%20framework-JUnit5-26A162.svg?logo=JUnit5)][3]
 [![Maven Dependency Manager](https://img.shields.io/badge/dependency%20manager-Maven-AA215A.svg?logo=ApacheMaven)][4]
 
-A kata starter project (skeleton) to practice test-driven development.
+A simple design pattern implementation exercise in Java.
 
-This short guide describes:
-
-- [Tools you'll need to get started][10]
-- [How to use this repository template][11]
-- [How to set up your local kata project][12]
-- [How to get started with your kata][13]
+- [Prerequisites][10]
+- [Development Setup][11]
+- [Java Design Pattern Exercise][12]
 
 ## Prerequisites
 
@@ -49,27 +46,14 @@ If you are using a Unix based system, we recommend using the [SdkMan tool][6] fo
 Once the SdkMan tool [installed][7], follow the instructions on [this page][8] to install the JDK 17.
 
 
-## Installation
+## Development Setup
 
-To use this starter project:
-
-- Click on the [`Use this template` button][9]
-- Fill out the details of your new project
-- Then click on `Create repository from template`
-
-![Create repository from template](./docs/create-project-from-template.png)
-
-## Development
-
-#### <u>Clone your repository</u>
-
-Once your new repository created, clone it locally:
-- replace `${your-username}` with your GitHub username
-- replace `${repository-name}` with the repository name you created above
+Clone this repository locally, then create a branch to work on. 
 
 ```bash
-git clone git@github.com:${your-username}/${repository-name}.git
-cd ${repository-name}
+git clone git@github.com:CodingBlackFemales/the-bakery.git
+cd the-bakery
+git checkout -b ${your-branch-name}
 ```
 
 #### <u>Install dependencies</u>
@@ -77,58 +61,92 @@ cd ${repository-name}
 Next, install the project dependencies and validate your project by running the following command at the root of your project:
 
 ```bash
-./mvnw clean validate
+./mvnw clean compile exec:java
 ```
 
 If you are on a Windows machine, that will be:
 
 ```bash
-mvnw clean validate
+mvnw clean compile exec:java
 ```
 
 You should see the following console output:
 
 ```bash
-$ ./mvnw clean validate
+$ ./mvnw clean compile exec:java
 
 [INFO] Scanning for projects...
 [INFO] 
-[INFO] --------------< com.codingblackfemales:shopping-basket-kata >---------------
-[INFO] Building shopping-basket-kata 1.0.0
+[INFO] -----------------< com.codingblackfemales:the-bakery >------------------
+[INFO] Building the-bakery 1.0.0
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- maven-clean-plugin:3.2.0:clean (default-clean) @ shopping-basket-kata ---
+[INFO] --- maven-clean-plugin:3.2.0:clean (default-clean) @ the-bakery ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ the-bakery ---
+[INFO] skip non existing resourceDirectory /Users/solange/Documents/Projects/CBF/Repositories/the-bakery/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ the-bakery ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /Users/solange/Documents/Projects/CBF/Repositories/the-bakery/target/classes
+[INFO] 
+[INFO] --- exec-maven-plugin:3.1.0:java (default-cli) @ the-bakery ---
+   10  Vanilla cake
+   10  Chocolate cake
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  0.155 s
-[INFO] Finished at: 2022-09-14T00:43:32+01:00
+[INFO] Total time:  0.939 s
+[INFO] Finished at: 2022-10-10T02:17:01+01:00
 [INFO] ------------------------------------------------------------------------
 
 ```
 
-#### <u>Example</u>
-
-In my case, the above steps would look like the following:
+As you can see, the current implementation output (with the maven default output) is:
 
 ```bash
-git clone git@github.com:SolangeUG/shopping-basket-kata.git
-cd shopping-basket-kata
-./mvnw clean validate
+    10  Vanilla cake
+    10  Chocolate cake
 ```
 
-## Next steps
 
-Once the project setup completed:
-- update the description of your repository to match that of the kata
-- update the `artifactId`, and the project `name` in the `pom.xml` file to match the name of the kata
-- execute the following command to run tests
+## Exercise
+
+The bakery makes two types of cakes: **vanilla** and **chocolate**. \
+They now want to make more complex cakes such as a `Multi-layered Vanilla cake with sprinkles that says 'Hello World!'`
+
+Change the code so that an order can contain such complex cakes using the **Decorator Pattern**.
+
+- Create the necessary decorator classes:
+
+    - For multi-layered cakes, add £5 and print `Multi-layered` at the front of the name.
+    - For sprinkles, add £2 and print `with sprinkles` at the end of the name.
+    - For a cake with the saying `X`, add nothing to the cost, and print `with saying 'X'` at the end of the name.
+
+- Add the new type of cake, a **strawberry cake**, which costs twice as much as a `Cake`.
+
+- Change the client to add the following to an `Order`, and print the `Order`:
+    
+    - Chocolate cake
+    - Vanilla cake with saying `PLAIN!`
+    - Vanilla cake with sprinkles with saying `FANCY`
+    - Multi-layered Strawberry cake with double sprinkles and two sayings `One of` and `EVERYTHING`
+
+#### <u>Sample output (without the maven default output)</u>
 
 ```bash
-./mvnw clean test
+    10  Chocolate cake
+    10  Vanilla cake with saying "PLAIN!"
+    12  Vanilla cake with sprinkles with saying "FANCY!"
+    29  Multi-layered Strawberry cake with sprinkles with sprinkles with saying "One of" with saying "EVERYTHING"
 ```
 
-Enjoy working on your kata! :smiley:
+#### <u>Constraints</u>
+
+- Adding a new type of cake does not change any existing code (except to instantiate it)
+- Adding a new way to decorate or style the cake (such as multi-layer, or with sprinkles) does not change any existing code (except to instantiate it)
+
+Enjoy working on your exercise! :smiley:
 
 
 [1]: https://www.java.com/en/download/help/whatis_java.html
@@ -141,6 +159,5 @@ Enjoy working on your kata! :smiley:
 [8]: https://sdkman.io/jdks#zulu
 [9]: https://github.com/CodingBlackFemales/tdd-java-starter/generate
 [10]: #prerequisites
-[11]: #installation
-[12]: #development
-[13]: #next-steps
+[11]: #development-setup
+[12]: #exercise
