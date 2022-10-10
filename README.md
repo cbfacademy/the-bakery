@@ -61,53 +61,43 @@ git checkout -b ${your-branch-name}
 Next, install the project dependencies and validate your project by running the following command at the root of your project:
 
 ```bash
-./mvnw clean compile exec:java
+./mvnw clean compile exec:java --quiet
 ```
 
 If you are on a Windows machine, that will be:
 
 ```bash
-mvnw clean compile exec:java
+mvnw clean compile exec:java --quiet
 ```
 
 You should see the following console output:
 
 ```bash
-$ ./mvnw clean compile exec:java
+$ ./mvnw clean compile exec:java --quiet
 
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -----------------< com.codingblackfemales:the-bakery >------------------
-[INFO] Building the-bakery 1.0.0
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- maven-clean-plugin:3.2.0:clean (default-clean) @ the-bakery ---
-[INFO] 
-[INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ the-bakery ---
-[INFO] skip non existing resourceDirectory /Users/solange/Documents/Projects/CBF/Repositories/the-bakery/src/main/resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ the-bakery ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 5 source files to /Users/solange/Documents/Projects/CBF/Repositories/the-bakery/target/classes
-[INFO] 
-[INFO] --- exec-maven-plugin:3.1.0:java (default-cli) @ the-bakery ---
    10  Vanilla cake
    10  Chocolate cake
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  0.939 s
-[INFO] Finished at: 2022-10-10T02:17:01+01:00
-[INFO] ------------------------------------------------------------------------
-
 ```
 
-As you can see, the current implementation output (with the maven default output) is:
+#### <u>Run the application</u>
+
+Everytime you need to run your code, this is the command to execute in your terminal:
 
 ```bash
-    10  Vanilla cake
-    10  Chocolate cake
+./mvnw clean compile exec:java --quiet
 ```
+
+If you are on Windows, run the following:
+
+```bash
+mvnw clean compile exec:java --quiet
+```
+
+
+#### <u>Note</u>
+
+The `--quiet` flag allows us to mute maven default (but very verbose) output. \
+Thus allowing us to focus on our program's actual output.
 
 
 ## Exercise
