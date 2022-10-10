@@ -15,7 +15,7 @@ A simple design pattern implementation exercise in Java.
 
 This starter project uses the [Java][1] programming language.
 
-Before getting started, ensure you have Java 17 LTS (or higher) installed locally. The following commands should output the version of Java installed.
+Before getting started, ensure you have Java 17 LTS (or higher) installwed locally. The following commands should output the version of Java installed.
 
 ```bash
 $ javac -version
@@ -56,7 +56,7 @@ cd the-bakery
 git checkout -b ${your-branch-name}
 ```
 
-#### <u>Install dependencies</u>
+#### :building_construction: <u>Install dependencies</u>
 
 Next, install the project dependencies and validate your project by running the following command at the root of your project:
 
@@ -79,7 +79,7 @@ $ ./mvnw clean compile exec:java --quiet
    10  Chocolate cake
 ```
 
-#### <u>Run the application</u>
+#### :house: <u>Run the application</u>
 
 Everytime you need to run your code, this is the command to execute in your terminal:
 
@@ -94,7 +94,7 @@ mvnw clean compile exec:java --quiet
 ```
 
 
-#### <u>Note</u>
+#### :writing_hand: <u>Note</u>
 
 The `--quiet` flag allows us to mute maven default (but very verbose) output. \
 Thus allowing us to focus on our program's actual output.
