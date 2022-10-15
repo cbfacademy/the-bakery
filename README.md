@@ -1,4 +1,4 @@
-# THe Bakery
+# The Bakery
 
 [![Java Language](https://img.shields.io/badge/language-Java-3A75B0.svg?logo=OpenJDK)][1]
 [![JVM Platform](https://img.shields.io/badge/platform-JVM-6C93B8.svg?logo=IntelliJIDEA)][2]
@@ -122,7 +122,7 @@ Change the code so that an order can contain such complex cakes using the **Deco
     - Vanilla cake with sprinkles with saying `FANCY`
     - Multi-layered Strawberry cake with double sprinkles and two sayings `One of` and `EVERYTHING`
 
-#### <u>Sample output (without the maven default output)</u>
+#### <u>Sample output</u>
 
 ```bash
     10  Chocolate cake
