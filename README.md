@@ -15,7 +15,7 @@ A simple design pattern implementation exercise in Java.
 
 This starter project uses the [Java][1] programming language.
 
-Before getting started, ensure you have Java 17 LTS (or higher) installwed locally. The following commands should output the version of Java installed.
+Before getting started, ensure you have Java 17 LTS (or higher) installed locally. The following commands should output the version of Java installed.
 
 ```bash
 $ javac -version
